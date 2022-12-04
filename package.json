@@ -2,7 +2,7 @@
   "name": "email-template",
   "version": "1.0.0",
   "description": "A basic project template to send emails using Node.js",
-  "main": "index.js",
+  "main": "main.js",
   "type": "module",
   "scripts": {
     "dev-server": "concurrently npm:dev-server:*",
