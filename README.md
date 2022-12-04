@@ -26,3 +26,9 @@ A basic, pure backend email feature template that can be used and installed on a
  
  ### Deployment
  * Possibly Heroku but I also have to check on other free hosting apps
+
+
+## To run the project
+### Development
+ * On terminal, type `npm run dev-server`
+ * Running at http://localhost:3000 
