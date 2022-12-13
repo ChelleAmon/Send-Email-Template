@@ -10,6 +10,19 @@ app.use(express.json());
 
 const PORT = 3000;
 
+const sendMail = (user: string, callback: any) => {
+    const transporter = nodeMailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false,
+        auth: {
+            user : "gichelleamon93@gmail.com",
+            pass: "password"
+        }
+    })
+}
+
+
 app.get("/", (req,res) => {
     res.send("Congratulations! Server is running successfully.")
 })
