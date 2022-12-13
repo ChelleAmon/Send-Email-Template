@@ -1,7 +1,10 @@
 # Send Email Template
 
 ## Description
-A basic, pure backend email feature template that can be used and installed on any projects that require such feature. 
+A basic, pure backend email feature template that can be used and installed on any projects that require such feature.
+
+## References
+* [Click me!](https://mailtrap.io/blog/angular-send-email/)
 
 ## Technologies
 
