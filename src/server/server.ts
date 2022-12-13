@@ -12,22 +12,31 @@ app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 const mail_user = {
-    email: process.env.EMAIL,
-    password: process.env.PASSWORD
+    test_emailfrom: process.env.TEST_EMAILFROM,
+    password: process.env.PASSWORD,
+    emailto: process.env.EMAILTO
 }
 
 const PORT = 3000;
 
-const sendMail = (user: string, callback: any) => {
+const sendMail = (user: any, callback: any) => {
     const transporter = nodeMailer.createTransport({
         host: "smtp.gmail.com",
         port: 587,
         secure: false,
         auth: {
-            user : mail_user.email,
+            user : mail_user.test_emailfrom,
             pass: mail_user.password
         }
     })
+    const mailOptions = {
+        from: mail_user.test_emailfrom,
+        to: mail_user.emailto,
+        subject: "<Message Subject>",
+        html: "<h1>And here is the place for HTML</h1>"
+    }
+    transporter.sendMail(mailOptions, callback)
+
 }
 
 
