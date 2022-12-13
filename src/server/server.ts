@@ -2,11 +2,19 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import nodeMailer from 'nodemailer';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app  = express();
 
 app.use(cors({ origin: "*" }));
 app.use(express.json());
+
+const mail_user = {
+    email: process.env.EMAIL,
+    password: process.env.PASSWORD
+}
 
 const PORT = 3000;
 
@@ -16,8 +24,8 @@ const sendMail = (user: string, callback: any) => {
         port: 587,
         secure: false,
         auth: {
-            user : "gichelleamon93@gmail.com",
-            pass: "password"
+            user : mail_user.email,
+            pass: mail_user.password
         }
     })
 }
