@@ -10,7 +10,7 @@ app.use(express.json());
 const PORT = 3000;
 
 app.get("/", (req,res) => {
-    res.json("Congratulations! Server is running successfully.")
+    res.send("Congratulations! Server is running successfully.")
 })
 
 app.listen(PORT, () => {
