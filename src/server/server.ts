@@ -29,6 +29,7 @@ const sendMail = (user: any, callback: any) => {
         */
         service: 'gmail',
         auth: {
+            type: 'OAUTH2',
             user : mail_user.test_emailfrom,
             pass: mail_user.password,
             clientId: process.env.OAUTH_CLIENTID,
