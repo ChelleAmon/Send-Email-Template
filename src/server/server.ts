@@ -21,19 +21,27 @@ const PORT = 3000;
 
 const sendMail = (user: any, callback: any) => {
     const transporter = nodeMailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 587,
-        secure: false,
+        /*
+        // I will keep these mail properties for now. 
+        // host: "smtp.gmail.com",
+        // port: 587,
+        // secure: true,
+        */
+        service: 'gmail',
         auth: {
+            type: 'OAUTH2',
             user : mail_user.test_emailfrom,
-            pass: mail_user.password
+            pass: mail_user.password,
+            clientId: process.env.OAUTH_CLIENTID,
+            clientSecret: process.env.OAUTH_CLIENT_SECRET,
+            refreshToken: process.env.OAUTH_REFRESH_TOKEN
         }
     })
     const mailOptions = {
         from: mail_user.test_emailfrom,
         to: mail_user.emailto,
-        subject: "<Message Subject>",
-        html: "<h1>And here is the place for HTML</h1>"
+        subject: "Test nodemail email",
+        text: "Whyyyyyyyyyyyy?? why is this working?"
     }
     transporter.sendMail(mailOptions, callback)
 
